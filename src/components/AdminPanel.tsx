@@ -78,7 +78,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
       setLoginError('');
       localStorage.setItem('anna_nursery_admin_auth', 'true');
     } else {
-      setLoginError('Invalid Admin PIN. (Hint: Use farm phone number 9446828709 or admin)');
+      setLoginError('Invalid Admin PIN. Please try again.');
     }
   };
 
@@ -216,7 +216,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
               <div>
                 <input
                   type="password"
-                  placeholder="Enter Admin PIN (9446828709)"
+                  placeholder="Enter Admin PIN"
                   value={pinInput}
                   onChange={(e) => setPinInput(e.target.value)}
                   className="w-full bg-[#FBFBF8] border border-[#0E2918]/20 rounded-xl px-4 py-3 text-center font-mono text-sm text-[#0E2918] placeholder-[#4A6B53]/60 focus:outline-none focus:border-[#265431] transition-colors shadow-2xs"
