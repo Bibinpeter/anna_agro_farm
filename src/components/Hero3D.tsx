@@ -230,10 +230,10 @@ export const Hero3D: React.FC<HeroProps> = ({ onExploreCatalog }) => {
         </div>
 
         {/* Action Triggers */}
-        <div className="flex flex-wrap items-center gap-4 sm:gap-6 mb-12">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-6 mb-12">
           <button
             onClick={onExploreCatalog}
-            className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[#265431] text-white font-mono text-sm font-bold uppercase tracking-wider shadow-[0_10px_30px_rgba(38,84,49,0.25)] hover:bg-[#0E2918] transition-all duration-300 transform hover:-translate-y-0.5"
+            className="group relative inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-[#265431] text-white font-mono text-xs sm:text-sm font-bold uppercase tracking-wider shadow-[0_10px_30px_rgba(38,84,49,0.25)] hover:bg-[#0E2918] transition-all duration-300 transform hover:-translate-y-0.5 w-full sm:w-auto"
           >
             <Compass className="w-4 h-4 text-white group-hover:rotate-90 transition-transform duration-500" />
             <span>Explore Botanical & Fruit Collection</span>
@@ -243,10 +243,10 @@ export const Hero3D: React.FC<HeroProps> = ({ onExploreCatalog }) => {
             href="https://wa.me/919446828709?text=Hello%20Anna%20Agro%20Farm,%20I%20am%20interested%20in%20a%20landscaping%20and%20stone%20work%20consultation."
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 px-7 py-4 rounded-full border border-[#265431]/30 bg-white/95 text-[#0E2918] hover:bg-[#EBF4EE] hover:border-[#265431] font-mono text-sm font-semibold uppercase tracking-wider transition-all duration-300 shadow-xs"
+            className="inline-flex items-center justify-center gap-3 px-6 sm:px-7 py-3.5 sm:py-4 rounded-full border border-[#265431]/30 bg-white/95 text-[#0E2918] hover:bg-[#EBF4EE] hover:border-[#265431] font-mono text-xs sm:text-sm font-semibold uppercase tracking-wider transition-all duration-300 shadow-xs w-full sm:w-auto"
           >
             <MessageSquare className="w-4 h-4 text-[#265431]" />
-            <span>WhatsApp Consultation: 9446828709</span>
+            <span>WhatsApp: 9446828709</span>
           </a>
         </div>
 

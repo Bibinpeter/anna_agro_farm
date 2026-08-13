@@ -112,7 +112,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, inquiryCount, onOpen
 
       {/* Full-Screen Light Overlay Navigation */}
       <div
-        className={`fixed inset-0 z-30 bg-[#FBFBF8]/98 backdrop-blur-2xl transition-all duration-700 ease-in-out flex flex-col justify-between p-8 md:p-16 ${
+        className={`fixed inset-0 z-30 bg-[#FBFBF8]/98 backdrop-blur-2xl transition-all duration-700 ease-in-out flex flex-col justify-between p-6 sm:p-12 md:p-16 overflow-y-auto ${
           isOpen
             ? 'opacity-100 pointer-events-auto translate-y-0'
             : 'opacity-0 pointer-events-none -translate-y-full'
