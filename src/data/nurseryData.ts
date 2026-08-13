@@ -325,7 +325,7 @@ export const nurseryItems: PlantItem[] = [
     categoryLabel: 'Fruit Trees',
     description: 'Traditional South Kerala heirloom mango variety prized for its unique juicy tang and aroma. Extremely hardy native tree built for monsoon heavy soil.',
     priceRange: '₹180 - ₹480',
-    image: 'https://images.unsplash.com/photo-1591073113125-e46713c829ed?auto=format&fit=crop&w=800&q=80',
+    image: '/assets/kootumango.webp',
     sunlight: 'Direct Full Sun',
     careLevel: 'Easy',
     waterNeed: 'Medium',

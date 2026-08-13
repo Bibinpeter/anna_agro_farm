@@ -29,7 +29,7 @@ export const App: React.FC = () => {
         const parsed: PlantItem[] = JSON.parse(saved);
         return parsed.map((item) => {
           const matchingInitial = initialItems.find((i) => i.id === item.id);
-          if (matchingInitial && (item.id === 'fruit-03' || item.id === 'fruit-04')) {
+          if (matchingInitial && (item.id === 'fruit-03' || item.id === 'fruit-04' || item.id === 'fruit-05')) {
             return { ...item, image: matchingInitial.image };
           }
           return item;
