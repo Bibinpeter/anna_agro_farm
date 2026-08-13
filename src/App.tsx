@@ -26,7 +26,15 @@ export const App: React.FC = () => {
     const saved = localStorage.getItem('anna_nursery_catalog_items');
     if (saved) {
       try {
-        return JSON.parse(saved);
+        const parsed: PlantItem[] = JSON.parse(saved);
+        // Replace any legacy external unsplash URLs with current initialItems local image paths
+        return parsed.map((item) => {
+          const matchingInitial = initialItems.find((i) => i.id === item.id);
+          if (matchingInitial && (item.image.includes('unsplash.com') || !item.image)) {
+            return { ...item, image: matchingInitial.image };
+          }
+          return item;
+        });
       } catch (e) {
         return initialItems;
       }

@@ -59,22 +59,22 @@ export const IntroSection: React.FC = () => {
               <img
                 src="/assets/outdoor_plants.jpg"
                 alt="Anna Agro Farm Thalikode Garden"
-                className="w-full h-[450px] object-cover group-hover:scale-105 transition-transform duration-700"
+                className="w-full h-72 sm:h-[450px] object-cover group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0E2918]/80 via-transparent to-transparent" />
 
               {/* Overlay Badge */}
-              <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl glass-panel-light">
-                <div className="flex items-center gap-3.5">
+              <div className="absolute bottom-3 left-3 right-3 sm:bottom-6 sm:left-6 sm:right-6 p-3 sm:p-4 rounded-2xl glass-panel-light">
+                <div className="flex items-center gap-3">
                   <img
                     src="/assets/sabu_cp.jpg"
                     alt="Sabu C.P. - Owner of Anna Agro Farm"
-                    className="w-14 h-14 rounded-full object-cover border-2 border-[#265431]/40 shadow-xs flex-shrink-0"
+                    className="w-11 h-11 sm:w-14 sm:h-14 rounded-full object-cover border-2 border-[#265431]/40 shadow-xs flex-shrink-0"
                   />
                   <div>
-                    <span className="font-mono text-[10px] font-bold text-[#265431] block">[ OWNER & FOUNDER ]</span>
-                    <h4 className="font-space font-extrabold text-sm text-[#0E2918]">Sabu C.P.</h4>
-                    <span className="font-sans text-xs text-[#4A6B53] block mt-0.5 font-medium">Owner of Anna Agro Farm (Anna Nursery)</span>
+                    <span className="font-mono text-[9px] sm:text-[10px] font-bold text-[#265431] block">[ OWNER & FOUNDER ]</span>
+                    <h4 className="font-space font-extrabold text-xs sm:text-sm text-[#0E2918]">Sabu C.P.</h4>
+                    <span className="font-sans text-[11px] sm:text-xs text-[#4A6B53] block mt-0.5 font-medium leading-tight">Owner of Anna Agro Farm (Anna Nursery)</span>
                   </div>
                 </div>
               </div>
