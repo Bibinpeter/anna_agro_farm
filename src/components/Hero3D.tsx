@@ -213,24 +213,8 @@ export const Hero3D: React.FC<HeroProps> = ({ onExploreCatalog }) => {
           Anna Agro Farm is Kerala’s premier botanical enterprise situated in <strong className="text-[#0E2918] font-semibold">Thalikode, Thrissur</strong>. Backed by <strong className="text-[#265431] font-mono font-bold">15+ years of garden lifespan mastery</strong>, we cultivate vibrant flowering flora, air-purifying indoor greenery, grafted fruit trees (mango, jackfruit, coconut), and execute bespoke granite stone work.
         </p>
 
-        {/* Key Guarantee Badges */}
-        <div className="flex flex-wrap items-center gap-4 mb-10 font-mono text-xs text-[#0E2918]">
-          <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-white/95 border border-[#265431]/20 shadow-2xs">
-            <CheckCircle2 className="w-4 h-4 text-[#265431]" />
-            <span className="font-bold">15+ Years Soil & Root Lifespan</span>
-          </div>
-          <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-white/95 border border-[#265431]/20 shadow-2xs">
-            <CheckCircle2 className="w-4 h-4 text-[#265431]" />
-            <span className="font-bold">Grafted High Yield Saplings</span>
-          </div>
-          <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-white/95 border border-[#265431]/20 shadow-2xs">
-            <CheckCircle2 className="w-4 h-4 text-[#265431]" />
-            <span className="font-bold">Kerala Monsoon Weatherproof</span>
-          </div>
-        </div>
-
         {/* Action Triggers */}
-        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-6 mb-12">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-6">
           <button
             onClick={onExploreCatalog}
             className="group relative inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-[#265431] text-white font-mono text-xs sm:text-sm font-bold uppercase tracking-wider shadow-[0_10px_30px_rgba(38,84,49,0.25)] hover:bg-[#0E2918] transition-all duration-300 transform hover:-translate-y-0.5 w-full sm:w-auto"
@@ -248,26 +232,6 @@ export const Hero3D: React.FC<HeroProps> = ({ onExploreCatalog }) => {
             <MessageSquare className="w-4 h-4 text-[#265431]" />
             <span>WhatsApp: 9446828709</span>
           </a>
-        </div>
-
-        {/* Key Categories Pill Bar */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 pt-6 border-t border-[#0E2918]/10">
-          {[
-            { label: '15+ Yrs Garden Life', icon: '🌟' },
-            { label: 'Flowered Plants', icon: '🌺' },
-            { label: 'Indoor Plants', icon: '🌿' },
-            { label: 'Fruit Trees (Mango/Jack)', icon: '🥭' },
-            { label: 'Landscape Decor', icon: '🏡' },
-            { label: 'Granite Stone Work', icon: '派' },
-          ].map((cat, idx) => (
-            <div
-              key={idx}
-              className="glass-card-light px-3.5 py-3 rounded-2xl flex items-center gap-2 text-xs font-mono text-[#0E2918]"
-            >
-              <span className="text-base">{cat.icon}</span>
-              <span className="truncate font-semibold">{cat.label}</span>
-            </div>
-          ))}
         </div>
       </div>
 
