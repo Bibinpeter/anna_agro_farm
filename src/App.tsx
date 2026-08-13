@@ -11,11 +11,32 @@ import { LocationSection } from './components/LocationSection';
 import { InquiryDrawer } from './components/InquiryDrawer';
 import { CTASection } from './components/CTASection';
 import { Footer } from './components/Footer';
+import { AdminPanel } from './components/AdminPanel';
 import { PlantItem, InquiryItem } from './types';
+import { nurseryItems as initialItems } from './data/nurseryData';
 
 export const App: React.FC = () => {
   const [inquiryItems, setInquiryItems] = useState<InquiryItem[]>([]);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [isAdminOpen, setIsAdminOpen] = useState(false);
+
+  // Dynamic plant items state persisted in localStorage
+  const [catalogItems, setCatalogItems] = useState<PlantItem[]>(() => {
+    const saved = localStorage.getItem('anna_nursery_catalog_items');
+    if (saved) {
+      try {
+        return JSON.parse(saved);
+      } catch (e) {
+        return initialItems;
+      }
+    }
+    return initialItems;
+  });
+
+  const handleUpdateCatalogItems = (newItems: PlantItem[]) => {
+    setCatalogItems(newItems);
+    localStorage.setItem('anna_nursery_catalog_items', JSON.stringify(newItems));
+  };
 
   useEffect(() => {
     // Initialize Lenis Smooth Scroll for silky 60 FPS scroll performance
@@ -82,15 +103,16 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#060C07] text-[#F4F6F0] font-sans antialiased overflow-x-hidden selection:bg-[#C6F19D] selection:text-[#060C07]">
+    <div className="relative min-h-screen bg-[#FBFBF8] text-[#0E2918] font-sans antialiased overflow-x-hidden">
       {/* Glowing Desktop Cursor */}
       <CustomCursor />
 
-      {/* Alethia Dark Navbar */}
+      {/* Light Header Navbar */}
       <Navbar
         onNavigate={scrollToId}
         inquiryCount={inquiryItems.reduce((acc, curr) => acc + curr.quantity, 0)}
         onOpenInquiryDrawer={() => setIsDrawerOpen(true)}
+        onOpenAdmin={() => setIsAdminOpen(true)}
       />
 
       {/* Main Sections */}
@@ -100,6 +122,7 @@ export const App: React.FC = () => {
         />
         <IntroSection />
         <CategoryShowcase
+          items={catalogItems}
           onAddToInquiry={handleAddToInquiry}
           inquiryItemIds={inquiryItems.map((inq) => inq.item.id)}
         />
@@ -110,7 +133,7 @@ export const App: React.FC = () => {
       </main>
 
       {/* Footer */}
-      <Footer />
+      <Footer onOpenAdmin={() => setIsAdminOpen(true)} />
 
       {/* Consultation Inquiry Slide-Over Drawer */}
       <InquiryDrawer
@@ -120,6 +143,14 @@ export const App: React.FC = () => {
         onUpdateQuantity={handleUpdateQuantity}
         onRemoveItem={handleRemoveItem}
         onClearBasket={handleClearBasket}
+      />
+
+      {/* Admin Panel Modal */}
+      <AdminPanel
+        isOpen={isAdminOpen}
+        onClose={() => setIsAdminOpen(false)}
+        items={catalogItems}
+        onUpdateItems={handleUpdateCatalogItems}
       />
     </div>
   );

@@ -5,11 +5,12 @@ import { CategoryType, PlantItem } from '../types';
 import { ItemModal } from './ItemModal';
 
 interface CategoryShowcaseProps {
+  items?: PlantItem[];
   onAddToInquiry: (item: PlantItem) => void;
   inquiryItemIds: string[];
 }
 
-export const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({ onAddToInquiry, inquiryItemIds }) => {
+export const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({ items = nurseryItems, onAddToInquiry, inquiryItemIds }) => {
   const [activeCategory, setActiveCategory] = useState<CategoryType>('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedTag, setSelectedTag] = useState<string>('all');
@@ -26,7 +27,7 @@ export const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({ onAddToInqui
   ];
 
   const filteredItems = useMemo(() => {
-    return nurseryItems.filter((item) => {
+    return items.filter((item) => {
       const matchesCategory = activeCategory === 'all' || item.category === activeCategory;
       const matchesSearch =
         item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||

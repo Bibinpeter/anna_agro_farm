@@ -5,9 +5,10 @@ interface NavbarProps {
   onNavigate?: (id: string) => void;
   inquiryCount: number;
   onOpenInquiryDrawer: () => void;
+  onOpenAdmin?: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onNavigate, inquiryCount, onOpenInquiryDrawer }) => {
+export const Navbar: React.FC<NavbarProps> = ({ onNavigate, inquiryCount, onOpenInquiryDrawer, onOpenAdmin }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -151,6 +152,26 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, inquiryCount, onOpen
                 <ArrowUpRight className="w-5 h-5 text-[#0E2918]/30 group-hover:text-[#265431] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
               </button>
             ))}
+
+            {onOpenAdmin && (
+              <button
+                onClick={() => {
+                  setIsOpen(false);
+                  onOpenAdmin();
+                }}
+                className="group flex items-center justify-between text-left py-3 border-b border-[#265431]/20 hover:border-[#265431] transition-all duration-300 mt-2 bg-[#EBF4EE] px-4 rounded-2xl"
+              >
+                <div className="flex items-baseline gap-4">
+                  <span className="font-mono text-xs text-[#265431] font-bold">
+                    [ ADMIN ]
+                  </span>
+                  <span className="font-space font-extrabold text-xl md:text-2xl text-[#265431]">
+                    Owner Admin Control Panel
+                  </span>
+                </div>
+                <ArrowUpRight className="w-5 h-5 text-[#265431]" />
+              </button>
+            )}
           </div>
 
           {/* Right Contact Info Column */}

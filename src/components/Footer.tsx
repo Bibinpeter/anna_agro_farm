@@ -1,7 +1,11 @@
 import React from 'react';
-import { Leaf, ArrowUp, MapPin, Phone, MessageSquare } from 'lucide-react';
+import { Leaf, ArrowUp, MapPin, Phone, MessageSquare, Lock } from 'lucide-react';
 
-export const Footer: React.FC = () => {
+interface FooterProps {
+  onOpenAdmin?: () => void;
+}
+
+export const Footer: React.FC<FooterProps> = ({ onOpenAdmin }) => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -122,6 +126,16 @@ export const Footer: React.FC = () => {
               <span>✨ Website Created by</span>
               <span className="underline decoration-1 underline-offset-2 font-extrabold">Bibin Peter</span>
             </a>
+
+            {onOpenAdmin && (
+              <button
+                onClick={onOpenAdmin}
+                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#0E2918] text-white font-mono text-[10px] font-bold uppercase tracking-wider hover:bg-[#265431] transition-all shadow-2xs"
+              >
+                <Lock className="w-3 h-3 text-[#86EFAC]" />
+                <span>Admin Panel</span>
+              </button>
+            )}
           </div>
 
           <button
