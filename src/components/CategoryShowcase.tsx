@@ -117,7 +117,7 @@ export const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({ onAddToInqui
           </div>
         </div>
 
-        {/* Products Grid */}
+        {/* Products Grid - 2 per row on mobile (grid-cols-2) */}
         {filteredItems.length === 0 ? (
           <div className="text-center py-16 p-8 rounded-3xl glass-card-light">
             <Leaf className="w-10 h-10 text-[#265431] mx-auto mb-3 opacity-50" />
@@ -125,18 +125,21 @@ export const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({ onAddToInqui
             <p className="font-sans text-xs text-[#4A6B53] mt-1">Try adjusting your category filter or search keyword.</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6">
             {filteredItems.map((item) => {
               const isInInquiry = inquiryItemIds.includes(item.id);
 
               return (
                 <div
                   key={item.id}
-                  className="group relative glass-card-light rounded-3xl overflow-hidden flex flex-col justify-between transition-all duration-300"
+                  className="group relative glass-card-light rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col justify-between transition-all duration-300 shadow-xs"
                 >
                   <div>
                     {/* Image Area */}
-                    <div className="relative h-52 overflow-hidden bg-[#FBFBF8]">
+                    <div
+                      className="relative h-36 sm:h-52 overflow-hidden bg-[#FBFBF8] cursor-pointer"
+                      onClick={() => setModalItem(item)}
+                    >
                       <img
                         src={item.image}
                         alt={item.name}
@@ -146,39 +149,45 @@ export const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({ onAddToInqui
                       <div className="absolute inset-0 bg-gradient-to-t from-[#0E2918]/40 via-transparent to-transparent" />
 
                       {/* Top Badges */}
-                      <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
-                        <span className="font-mono text-[10px] uppercase font-bold px-2.5 py-1 rounded-full bg-white/90 text-[#265431] border border-[#265431]/20 backdrop-blur-md shadow-xs">
+                      <div className="absolute top-2 left-2 right-2 sm:top-3 sm:left-3 sm:right-3 flex items-center justify-between">
+                        <span className="font-mono text-[8px] sm:text-[10px] uppercase font-bold px-1.5 sm:px-2.5 py-0.5 sm:py-1 rounded-full bg-white/90 text-[#265431] border border-[#265431]/20 backdrop-blur-md shadow-2xs truncate max-w-[85%]">
                           {item.categoryLabel}
                         </span>
                       </div>
 
                       {/* Quick Eye Modal Trigger */}
                       <button
-                        onClick={() => setModalItem(item)}
-                        className="absolute bottom-3 right-3 w-8 h-8 rounded-full bg-white/90 border border-[#265431]/30 flex items-center justify-center text-[#265431] hover:bg-[#265431] hover:text-white transition-all opacity-0 group-hover:opacity-100 shadow-xs"
-                        title="View Full Specifications"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setModalItem(item);
+                        }}
+                        className="absolute bottom-2 right-2 sm:bottom-3 sm:right-3 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/90 border border-[#265431]/30 flex items-center justify-center text-[#265431] hover:bg-[#265431] hover:text-white transition-all shadow-xs"
+                        title="View Details"
                       >
-                        <Eye className="w-4 h-4" />
+                        <Eye className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                       </button>
                     </div>
 
                     {/* Card Content */}
-                    <div className="p-5">
-                      <h3 className="font-space font-bold text-base text-[#0E2918] group-hover:text-[#265431] transition-colors line-clamp-1">
+                    <div className="p-3 sm:p-5">
+                      <h3
+                        onClick={() => setModalItem(item)}
+                        className="font-space font-bold text-xs sm:text-base text-[#0E2918] group-hover:text-[#265431] transition-colors line-clamp-1 cursor-pointer"
+                      >
                         {item.name}
                       </h3>
                       {item.scientificName && (
-                        <p className="font-cormorant italic text-xs text-[#265431] mb-2 font-medium">
+                        <p className="font-cormorant italic text-[10px] sm:text-xs text-[#265431] mb-1 sm:mb-2 font-medium truncate">
                           {item.scientificName}
                         </p>
                       )}
 
-                      <p className="font-sans text-xs text-[#4A6B53] font-normal line-clamp-2 mb-4 leading-relaxed">
+                      <p className="font-sans text-[10px] sm:text-xs text-[#4A6B53] font-normal line-clamp-2 mb-2 sm:mb-4 leading-relaxed hidden sm:block">
                         {item.description}
                       </p>
 
                       {/* Features */}
-                      <div className="flex flex-wrap gap-1.5 mb-4">
+                      <div className="hidden sm:flex flex-wrap gap-1.5 mb-4">
                         {item.features.slice(0, 2).map((feat, idx) => (
                           <span key={idx} className="font-mono text-[10px] px-2 py-0.5 rounded bg-[#EBF4EE] text-[#265431] border border-[#265431]/10">
                             {feat}
@@ -189,14 +198,14 @@ export const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({ onAddToInqui
                   </div>
 
                   {/* Card Footer Actions */}
-                  <div className="p-5 pt-0 flex items-center justify-between border-t border-[#0E2918]/10 mt-auto">
-                    <span className="font-mono text-xs font-extrabold text-[#265431]">
+                  <div className="p-3 sm:p-5 pt-0 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-1.5 sm:gap-0 border-t border-[#0E2918]/10 mt-auto">
+                    <span className="font-mono text-[10px] sm:text-xs font-extrabold text-[#265431]">
                       {item.priceRange}
                     </span>
 
                     <button
                       onClick={() => onAddToInquiry(item)}
-                      className={`flex items-center gap-1.5 px-3.5 py-2 rounded-full font-mono text-[11px] font-bold uppercase transition-all duration-300 ${
+                      className={`flex items-center justify-center gap-1 sm:gap-1.5 px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-full font-mono text-[9px] sm:text-[11px] font-bold uppercase transition-all duration-300 ${
                         isInInquiry
                           ? 'bg-[#265431] text-white shadow-xs'
                           : 'bg-[#EBF4EE] text-[#265431] hover:bg-[#265431] hover:text-white border border-[#265431]/20'
@@ -204,12 +213,12 @@ export const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({ onAddToInqui
                     >
                       {isInInquiry ? (
                         <>
-                          <Check className="w-3.5 h-3.5" />
+                          <Check className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                           <span>Added</span>
                         </>
                       ) : (
                         <>
-                          <Plus className="w-3.5 h-3.5" />
+                          <Plus className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                           <span>Inquire</span>
                         </>
                       )}
