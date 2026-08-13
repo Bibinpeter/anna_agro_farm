@@ -26,7 +26,14 @@ export const App: React.FC = () => {
     const saved = localStorage.getItem('anna_nursery_catalog_items');
     if (saved) {
       try {
-        return JSON.parse(saved);
+        const parsed: PlantItem[] = JSON.parse(saved);
+        return parsed.map((item) => {
+          const matchingInitial = initialItems.find((i) => i.id === item.id);
+          if (matchingInitial && item.id === 'fruit-03') {
+            return { ...item, image: matchingInitial.image };
+          }
+          return item;
+        });
       } catch (e) {
         return initialItems;
       }

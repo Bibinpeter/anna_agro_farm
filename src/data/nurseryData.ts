@@ -295,7 +295,7 @@ export const nurseryItems: PlantItem[] = [
     categoryLabel: 'Fruit Trees',
     description: 'Grafted Alphonso (Hapus) mango sapling producing rich saffron-yellow sweet fiberless mangoes. Acclimatized for high yield in Kerala red soil.',
     priceRange: '₹220 - ₹650',
-    image: 'https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&w=800&q=80',
+    image: '/assets/alphons.webp',
     sunlight: 'Direct Full Sun',
     careLevel: 'Easy',
     waterNeed: 'Medium',
