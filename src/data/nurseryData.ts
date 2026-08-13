@@ -310,7 +310,7 @@ export const nurseryItems: PlantItem[] = [
     categoryLabel: 'Fruit Trees',
     description: 'Hybrid dwarf mango variety producing honey-sweet orange pulp. Compact canopy makes it perfect for home gardens and backyard fruit corners.',
     priceRange: '₹200 - ₹580',
-    image: 'https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?auto=format&fit=crop&w=800&q=80',
+    image: '/assets/malika_mango.webp',
     sunlight: 'Direct Full Sun',
     careLevel: 'Easy',
     waterNeed: 'Medium',
