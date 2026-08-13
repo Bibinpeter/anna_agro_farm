@@ -118,3 +118,32 @@ html.lenis, html.lenis body {
 .lenis.lenis-scrolling iframe {
   pointer-events: none;
 }
+
+/* 🌟 Awesome Scroll Reveal Animations */
+.scroll-init {
+  opacity: 0;
+  transform: translateY(32px) scale(0.98);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease;
+  filter: blur(4px);
+  will-change: opacity, transform, filter;
+}
+
+.scroll-init.scroll-reveal-left {
+  transform: translateX(-40px) scale(0.98);
+}
+
+.scroll-init.scroll-reveal-right {
+  transform: translateX(40px) scale(0.98);
+}
+
+.scroll-init.scroll-scale {
+  transform: scale(0.92);
+}
+
+.scroll-init.is-revealed,
+.is-revealed {
+  opacity: 1 !important;
+  transform: translateY(0) translateX(0) scale(1) !important;
+  filter: blur(0) !important;
+}
+

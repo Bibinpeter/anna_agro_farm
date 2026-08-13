@@ -12,6 +12,7 @@ import { InquiryDrawer } from './components/InquiryDrawer';
 import { CTASection } from './components/CTASection';
 import { Footer } from './components/Footer';
 import { AdminPanel } from './components/AdminPanel';
+import { ScrollEffects } from './components/ScrollEffects';
 import { PlantItem, InquiryItem } from './types';
 import { nurseryItems as initialItems } from './data/nurseryData';
 
@@ -104,6 +105,9 @@ export const App: React.FC = () => {
 
   return (
     <div className="relative min-h-screen bg-[#FBFBF8] text-[#0E2918] font-sans antialiased overflow-x-hidden">
+      {/* Scroll Progress Bar, Intersection Observer & Floating Parallax Leaves */}
+      <ScrollEffects />
+
       {/* Glowing Desktop Cursor */}
       <CustomCursor />
 
