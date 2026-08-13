@@ -99,7 +99,6 @@ export const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({ items = nurs
             <span className="font-mono text-[11px] text-[#4A6B53] mr-1 hidden md:inline">Quick Filter:</span>
             {[
               { id: 'all', label: 'All Items' },
-              { id: 'kerala', label: '★ Kerala Top Choice' },
               { id: 'easy', label: 'Easy Care' },
               { id: 'sun', label: 'Full Sun' },
             ].map((tag) => (
